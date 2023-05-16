@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../img/ijew58rzbaalpuueu3dy-removebg-preview.png';
-import styles from '../styles.module.css';
+import  '../styles.css';
 
 const Header = () => {
     return (
         <>
-            <Navbar bg="dark" variant="dark" className={styles.navbar} >
+            <Navbar bg="dark" variant="dark" className="navbar" >
                 <Navbar.Brand href="#home">
                     <img
                         alt=""

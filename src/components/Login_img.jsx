@@ -1,11 +1,17 @@
 import React from 'react'
 
+
+
 const Login_img = () => {
     return (
         <>
-            <div className="right_data mt-5" style={{ width: "100%" }}>
-                <div className="sign_img mt-5">
-                    <img src="./" style={{ maxWidth: 400 }} alt="" />
+            <div className="right_data " style={{ width: "100%" }}>
+                <div className="login_img ">
+                    <div className='login_img_data'>
+
+                        <h1>Start turning your ideas into reality.</h1>
+                        <p>"To turn your ideas into reality, embrace the power of action and determination."</p>
+                    </div>
                 </div>
             </div>
         </>

@@ -1,0 +1,40 @@
+.navbar{
+    padding: 10px;
+}
+.left_data{
+    padding: 38px;
+    
+}
+.login_btn{
+    background-color:rgba(126,86,218,255);
+}
+.login_btn:hover{
+    background-color:rgba(126,86,218,255);
+    opacity: 0.9;
+}
+.login_img{
+    position: relative;
+    background-image:url(/src/img/Soothing-nature-backgrounds-2-1024x684.jpg);
+    background-color: #322a44;
+    background-blend-mode: multiply;
+    height: 90.2vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login_img_data{
+    position: absolute; 
+  top: 50%; 
+  left: 40%;
+  transform: translate(-50%, -50%);
+   
+}
+.login_img_data h1{
+    font-size: 45px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
