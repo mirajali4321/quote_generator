@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import LoginImg from './Login_img'
-import { NavLink } from 'react-router-dom'
-import '../styles.css'
+import { NavLink ,useNavigate} from 'react-router-dom'
 
 
+const SignIn = () => {
 
-const Home = () => {
+    const history =useNavigate();
+
+
     const [errors, setErrors] = useState({});
     const [inputvalue, setinputvalue] = useState({
-        name: "",
-        user_name: "",
         email: "",
         password: "",
     })
@@ -37,20 +37,12 @@ const Home = () => {
     }
     const addData = (e) => {
         e.preventDefault();
-        console.log(inputvalue);
+        const getUserArr =localStorage.getItem("Userdata")
+        console.log(getUserArr);
         const newErrors = {};
 
         // Validate the fields and set error messages 
-        if (inputvalue.name === '') {
-            newErrors.name = 'Name field is required';
-        }
-        if (inputvalue.user_name === '') {
-            newErrors.user_name = 'Username field is required';
-        }
-        else if (!/^[a-zA-Z0-9]+$/.test(inputvalue.user_name)) {
-            newErrors.user_name = 'Username must contain only letters and numbers';
-        }
-
+        
         if (inputvalue.email === '') {
             newErrors.email = 'Email field is required';
         }
@@ -63,52 +55,41 @@ const Home = () => {
         else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(inputvalue.password)) {
             newErrors.password = 'Password must contain at least 8 characters, including a letter and a number';
         }
+        else if (caches){
+            
+        }
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            alert("account created successfully")
+           
+            if (getUserArr && getUserArr.length) {
+                const userdata = JSON.parse(getUserArr);
+                const userLogin = userdata.filter((element, key)=>{
+                    return element.email ===inputvalue.email && element.password=== inputvalue.password
 
-            const existingData = JSON.parse(localStorage.getItem('Userdata')) || [];
-            const newUser = {
-                name: inputvalue.name,
-                user_name: inputvalue.user_name,
-                email: inputvalue.email,
-                password: inputvalue.password
-            };
-
-            // Add the new user to the existing data array
-            const newData = [...existingData, newUser];
-
-            // Store the updated user data array in localStorage
-            localStorage.setItem('Userdata', JSON.stringify(newData));
-
-            setinputvalue({
-                name: '',
-                user_name: '',
-                email: '',
-                password: ''
-            });
-
+                    
+                });
+               if (userLogin.length===0) {
+                newErrors.email = 'Invalid username or password.';
+                console.log('invalid credentials');
+                //  alert("invalid credentials")
+               }else{
+                console.log('user login successfully');
+                history("/dashboard");
+               }
+                
+            }
+           
 
         }
     }
-
-
-    return (
-        <>
-            <div >
+  return (
+    <>
+    <div >
                 <section className='d-flex ' >
                     <div className="left_data " style={{ width: "100%" }}>
-                        <h3 className='text-center col-lg-6'>Sign Up Form</h3>
+                        <h2 className=' mb-4 col-lg-6'>Sign In Form</h2>
                         <Form onSubmit={addData} >
-                            <Form.Group className="mb-3 col-lg-8" id="nameContainer">
-                                <Form.Label>Name</Form.Label>
-                                <Form.Control type="text" name='name' id='name' onChange={getdata} placeholder="Enter your name" />
-                                {errors.name && <span className="error-message">{errors.name}</span>}                            </Form.Group>
-                            <Form.Group className="mb-3 col-lg-8" >
-                                <Form.Label>Username</Form.Label>
-                                <Form.Control type="text" name='user_name' onChange={getdata} placeholder="Enter your username" />
-                                {errors.user_name && <span className="error-message">{errors.user_name}</span>}                            </Form.Group>
                             <Form.Group className="mb-3 col-lg-8" >
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter your email" />
@@ -120,16 +101,16 @@ const Home = () => {
                                 {errors.password && <span className="error-message">{errors.password}</span>}
                             </Form.Group>
                             <Button className='col-lg-8 login_btn' type="submit">
-                                Create account
+                                Sign In
                             </Button>
                         </Form>
-                        <p className='mt-3'>Already Have an Account. <span><NavLink to="/login">Sign In</NavLink></span> </p>
+                        <p className='mt-3'>Don't have an account?  <NavLink to="/">Sign Up</NavLink>  .</p>
                     </div>
                     <LoginImg />
                 </section>
             </div>
-        </>
-    )
+    </>
+  )
 }
 
-export default Home
+export default SignIn

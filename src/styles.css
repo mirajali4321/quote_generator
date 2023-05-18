@@ -17,7 +17,7 @@
     background-image:url(/src/img/Soothing-nature-backgrounds-2-1024x684.jpg);
     background-color: #322a44;
     background-blend-mode: multiply;
-    height: 90.2vh;
+    height: 110vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,4 +37,9 @@
     font-size: 45px;
     line-height: 1.2;
     margin-bottom: 20px;
+}
+
+.error-message{
+    color: red;
+    margin-top: 10px;
 }
