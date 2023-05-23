@@ -9,7 +9,7 @@ const Error = () => {
             <div className="error d-flex flex-column justify-content-lg-center align-items-center">
                 {/* <img src="./404.png" alt="error" className='errorimg' /> */}
                 <h4>404 Error ! Page Not Found 😭</h4>
-                <button className='btn btn-primary' onClick={()=>history("/")}>Redirect Login Page</button>
+                <button className='btn btn-primary' onClick={()=>history("/login")}>Redirect Login Page</button>
             </div>
 
         </div>
