@@ -5,7 +5,7 @@ const Error = () => {
     const history = useNavigate();
   return (
     <>
-    <div className='container'>
+    <div className='container mt-50'>
             <div className="error d-flex flex-column justify-content-lg-center align-items-center">
                 {/* <img src="./404.png" alt="error" className='errorimg' /> */}
                 <h4>404 Error ! Page Not Found 😭</h4>

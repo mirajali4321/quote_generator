@@ -69,16 +69,6 @@ const Header = () => {
     }
     };
 
-
-
-
-
-
-
-
-
-
-
     const handlelogout = () => {
         localStorage.removeItem('user_login');
         history("/login");
@@ -126,7 +116,7 @@ const Header = () => {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Your Quote is </Modal.Title>
+                    <Modal.Title>Your Inspirational Quote is </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {searchQuery === '' ? (

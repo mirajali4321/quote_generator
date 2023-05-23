@@ -8,6 +8,7 @@ const Quotes = () => {
     const [savedQuotes, setSavedQuotes] = useState([]);
     const [user, setUser] = useState(null);
     const [logindata, setlogindata] = useState([]);
+    const [error, setError] = useState(false);
 
 
     const getuser = localStorage.getItem('user_login');
@@ -21,8 +22,6 @@ const Quotes = () => {
             } else {
                 setSavedQuotes([]);
             }
-            // const quotesFromLocalStorage = userData.quote;
-            // setSavedQuotes(quotesFromLocalStorage);
         }
 
     }, []);
@@ -45,6 +44,7 @@ const Quotes = () => {
 
     const handleInputChange = (e) => {
         setQuote(e.target.value);
+        setError(false);
     };
 
     const generateRandomId = () => {
@@ -56,13 +56,17 @@ const Quotes = () => {
 
 
         if (user) {
-            const newQuote = {
 
+            const trimmedQuote = quote.trim();
+            if (trimmedQuote === "") {
+                setError(true);
+                return;
+
+            }
+            const newQuote = {
                 id: generateRandomId(),
                 quote: quote
             };
-            // console.log('User:', user);
-            // console.log('User email:', user && user[0].email);
 
             const updatedQuotes = [...savedQuotes, newQuote];
             setSavedQuotes(updatedQuotes);
@@ -72,9 +76,6 @@ const Quotes = () => {
                 ...user,
                 quotes: updatedQuotes
             };
-
-
-            // console.log('Updated user data:', updatedUserData);
 
 
             if (localStorage.getItem(`user_quotes_${user[0].email}`)) {
@@ -98,9 +99,6 @@ const Quotes = () => {
         }
     };
 
-  
-      
-
     return (
         <>
 
@@ -112,6 +110,7 @@ const Quotes = () => {
                             <h3>Create your own Quotes</h3>
                             <Form.Group className="mb-3 col-lg-10" id="nameContainer">
                                 <Form.Control type="text" id='quoteInput' onChange={handleInputChange} placeholder="Enter your quote here" />
+                                {error && <div className="error-message">Please enter a quote.</div>}
                             </Form.Group>
                             <Button className='col-lg-3 ms-0 login_btn' type="submit">
                                 Add Quotes
