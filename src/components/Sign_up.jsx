@@ -37,7 +37,7 @@ const Home = () => {
     }
     const addData = (e) => {
         e.preventDefault();
-        console.log(inputvalue);
+        // console.log(inputvalue);
         const newErrors = {};
 
         // Validate the fields and set error messages 

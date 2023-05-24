@@ -7,14 +7,12 @@ const Quotes = () => {
     const [quote, setQuote] = useState('');
     const [savedQuotes, setSavedQuotes] = useState([]);
     const [user, setUser] = useState(null);
-    const [logindata, setlogindata] = useState([]);
     const [error, setError] = useState(false);
 
-    const getuser = localStorage.getItem('user_login');
     useEffect(() => {
+        const getuser = localStorage.getItem('user_login');
         if (getuser && getuser.length) {
             const userData = JSON.parse(getuser);
-            setlogindata(userData);
             setUser(userData);
             if (userData.quotes) {
                 setSavedQuotes(userData.quotes);

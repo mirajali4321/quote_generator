@@ -6,8 +6,6 @@ import { FaSearch } from "react-icons/fa";
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
-
 import '../styles.css';
 
 const Header = () => {
@@ -46,13 +44,9 @@ const Header = () => {
                     );
                     console.log(filteredQuotes); // Display the filtered quotes in the console
                     setSavedQuotes(filteredQuotes);
-                } else {
-                    console.log('Data in local storage is not an array:', parsedData);
                 }
-            } else {
-                console.log('No data found in local storage');
-
             }
+
             document.getElementById('search').value = '';
             handleShow();
 

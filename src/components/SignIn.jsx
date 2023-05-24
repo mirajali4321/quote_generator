@@ -5,7 +5,7 @@ import LoginImg from './Login_img'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 
-const SignIn = ({ onLogin }) => {
+const SignIn = () => {
 
     const history = useNavigate();
 
@@ -38,7 +38,7 @@ const SignIn = ({ onLogin }) => {
     const addData = (e) => {
         e.preventDefault();
         const getUserArr = localStorage.getItem("Userdata")
-        console.log(getUserArr);
+        // console.log(getUserArr);
         const newErrors = {};
 
         // Validate the fields and set error messages 
@@ -55,9 +55,9 @@ const SignIn = ({ onLogin }) => {
         else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(inputvalue.password)) {
             newErrors.password = 'Password must contain at least 8 characters, including a letter and a number';
         }
-        else if (caches) {
+        // else if (caches) {
 
-        }
+        // }
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
@@ -69,8 +69,6 @@ const SignIn = ({ onLogin }) => {
                 });
                 if (userLogin.length === 0) {
                     newErrors.email = 'Invalid username or password.';
-                    console.log('invalid credentials');
-                    //  alert("invalid credentials")
                 } else {
                     console.log('user login successfully');
                     localStorage.setItem("user_login", JSON.stringify(userLogin))
