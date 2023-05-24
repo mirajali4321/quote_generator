@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Quotes from './Quotes';
 import { useNavigate } from 'react-router-dom'
+import fetch_api from '../Api/fetch_api';
 
 const Dashboard = () => {
     const [magicQuote, setMagicQuote] = useState('');
@@ -16,12 +17,10 @@ const Dashboard = () => {
         }
     }, []);
 
+    // Fetch Api
     const fetchMagicQuote = async () => {
         try {
-            const response = await fetch('https://type.fit/api/quotes');
-            const data = await response.json();
-            const randomIndex = Math.floor(Math.random() * data.length);
-            const randomQuote = data[randomIndex];
+            const randomQuote = await fetch_api();
             setMagicQuote(randomQuote);
         } catch (error) {
             console.error('Error fetching magic quote:', error);
