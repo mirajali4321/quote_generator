@@ -70,9 +70,9 @@ const Quotes = () => {
                 quotes: updatedQuotes
             };
 
-
-            if (localStorage.getItem(`user_quotes_${user[0].email}`)) {
-                const existingUserData = JSON.parse(localStorage.getItem(`user_quotes_${user[0].email}`));
+            const user_quotes_key = localStorage.getItem(`user_quotes_${user[0].email}`);
+            if (user_quotes_key) {
+                const existingUserData = JSON.parse(user_quotes_key);
 
                 const updatedQuotesWithoutDuplicates = updatedQuotes.filter((quote) => {
                     return !existingUserData.quotes.some((existingQuote) => existingQuote.id === quote.id);
