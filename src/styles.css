@@ -3,6 +3,10 @@
   display: flex;
   justify-content: space-between;
 }
+.custom-navbar {
+  width: 30px;
+  height: 30px;
+}
 
 .search_form {
   margin: auto;
@@ -16,7 +20,7 @@
   width: 150%;
 }
 
-.search_bar input[type="text"] {
+.search_bar input[type='text'] {
   flex: 1;
   padding: 0px 20px;
   border: 1px solid rgb(161, 160, 160);
@@ -26,7 +30,7 @@
   color: #ffffff;
 }
 
-.search_bar input[type="text"]::placeholder {
+.search_bar input[type='text']::placeholder {
   color: white;
 }
 
@@ -216,4 +220,8 @@ hr {
 
 .error-message {
   color: red;
+}
+
+.right_data{
+  width: 100%;
 }

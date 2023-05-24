@@ -8,8 +8,8 @@ const SignIn = () => {
     const history = useNavigate()
     const [errors, setErrors] = useState({});
     const [inputvalue, setinputvalue] = useState({
-        email: "",
-        password: "",
+        email: '',
+        password: '',
     })
     // get data from input feilds and store it in usestate
     const getdata = (e) => {
@@ -18,7 +18,7 @@ const SignIn = () => {
             return {
                 ...inputvalue,
                 [name]: value,
-                value: "",
+                value: '',
             }
         })
         setErrors((prevErrors) => ({
@@ -28,7 +28,7 @@ const SignIn = () => {
     }
     const addData = (e) => {
         e.preventDefault();
-        const getUserArr = localStorage.getItem("Userdata")
+        const getUserArr = localStorage.getItem('Userdata')
         const newErrors = {};
         // Validate the fields and set error messages 
         if (inputvalue.email === '') {
@@ -56,8 +56,8 @@ const SignIn = () => {
                     newErrors.email = 'Invalid username or password.';
                 } else {
                     console.log('user login successfully');
-                    localStorage.setItem("user_login", JSON.stringify(userLogin))
-                    history("/dashboard");
+                    localStorage.setItem('user_login', JSON.stringify(userLogin))
+                    history('/dashboard');
                 }
             }
         }
@@ -66,24 +66,24 @@ const SignIn = () => {
         <>
             <div >
                 <section className='d-flex ' >
-                    <div className="left_data " style={{ width: "100%" }}>
+                    <div className='left_data ' style={{ width: '100%' }}>
                         <h2 className=' mb-4 col-lg-6'>Sign In Form</h2>
                         <Form onSubmit={addData} >
-                            <Form.Group className="mb-3 col-lg-10" >
+                            <Form.Group className='mb-3 col-lg-10' >
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter your email" />
-                                {errors.email && <span className="error-message">{errors.email}</span>}
+                                <Form.Control type='email' name='email' onChange={getdata} placeholder='Enter your email' />
+                                {errors.email && <span className='error-message'>{errors.email}</span>}
                             </Form.Group>
-                            <Form.Group className="mb-3 col-lg-10" >
+                            <Form.Group className='mb-3 col-lg-10' >
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" name='password' onChange={getdata} placeholder="Create a password" />
-                                {errors.password && <span className="error-message">{errors.password}</span>}
+                                <Form.Control type='password' name='password' onChange={getdata} placeholder='Create a password' />
+                                {errors.password && <span className='error-message'>{errors.password}</span>}
                             </Form.Group>
-                            <Button className='col-lg-8 ms-0 login_btn' type="submit">
+                            <Button className='col-lg-8 ms-0 login_btn' type='submit'>
                                 Sign In
                             </Button>
                         </Form>
-                        <p className='mt-3'>Don't have an account?  <NavLink to="/">Sign Up</NavLink>  .</p>
+                        <p className='mt-3'>Don't have an account?  <NavLink to='/'>Sign Up</NavLink>  .</p>
                     </div>
                     <LoginImg />
                 </section>

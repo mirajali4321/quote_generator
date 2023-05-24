@@ -31,15 +31,15 @@ const Dashboard = () => {
     return (
         <>
             {
-                logindata.length === 0 ? history("/login") :
+                logindata.length === 0 ? history('/login') :
                     <>
                         <section className='d-flex main'>
-                            <div className="dash_left_data " style={{ width: "100%" }}>
-                                <div className="App">
+                            <div className='dash_left_data '>
+                                <div className='App'>
                                     <h1>Magic Quote Generator</h1>
                                     <hr />
                                     {magicQuote && (
-                                        <div className="quote-container">
+                                        <div className='quote-container'>
                                             <h4>❝  {magicQuote.text} ❞</h4>
                                             <p>- {magicQuote.author}</p>
                                         </div>

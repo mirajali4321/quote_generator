@@ -42,7 +42,7 @@ const Quotes = () => {
         e.preventDefault();
         if (user) {
             const trimmedQuote = quote.trim();
-            if (trimmedQuote === "") {
+            if (trimmedQuote === '') {
                 setError(true);
                 return;
             }
@@ -77,16 +77,16 @@ const Quotes = () => {
     return (
         <>
             <div className='dash_right_data '>
-                <div className="centered">
+                <div className='centered'>
                     <h1>User Quotes</h1>
                     <div className=''>
                         <Form onSubmit={handleSaveQuote} >
                             <h3>Create your own Quotes</h3>
-                            <Form.Group className="mb-3 col-lg-10" id="nameContainer">
-                                <Form.Control type="text" id='quoteInput' onChange={handleInputChange} placeholder="Enter your quote here" />
-                                {error && <div className="error-message">Please enter a quote.</div>}
+                            <Form.Group className='mb-3 col-lg-10' id='nameContainer'>
+                                <Form.Control type='text' id='quoteInput' onChange={handleInputChange} placeholder='Enter your quote here' />
+                                {error && <div className='error-message'>Please enter a quote.</div>}
                             </Form.Group>
-                            <Button className='col-lg-3 ms-0 login_btn' type="submit">
+                            <Button className='col-lg-3 ms-0 login_btn' type='submit'>
                                 Add Quotes
                             </Button>
                         </Form>
