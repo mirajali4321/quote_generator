@@ -54,7 +54,7 @@ const Header = () => {
     const isSignupPage = location.pathname === '/';
     return (
         <>
-            <Navbar  className='navbar bg-dark' >
+            <Navbar className='navbar bg-dark' >
                 <Navbar.Brand className='text-white' >
                     <img
                         alt=''
