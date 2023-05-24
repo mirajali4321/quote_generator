@@ -79,7 +79,7 @@ const Quotes = () => {
             <div className='dash_right_data '>
                 <div className='centered'>
                     <h1>User Quotes</h1>
-                    <div className=''>
+                    <div>
                         <Form onSubmit={handleSaveQuote} >
                             <h3>Create your own Quotes</h3>
                             <Form.Group className='mb-3 col-lg-10' id='nameContainer'>

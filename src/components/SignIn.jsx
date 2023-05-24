@@ -66,7 +66,7 @@ const SignIn = () => {
         <>
             <div >
                 <section className='d-flex ' >
-                    <div className='left_data ' style={{ width: '100%' }}>
+                    <div className='left_data '>
                         <h2 className=' mb-4 col-lg-6'>Sign In Form</h2>
                         <Form onSubmit={addData} >
                             <Form.Group className='mb-3 col-lg-10' >

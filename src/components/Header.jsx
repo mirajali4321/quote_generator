@@ -99,7 +99,7 @@ const Header = () => {
                     )}
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant='secondary' onClick={handleClose}>
+                    <Button className='btn-secondary' onClick={handleClose}>
                         Close
                     </Button>
                 </Modal.Footer>

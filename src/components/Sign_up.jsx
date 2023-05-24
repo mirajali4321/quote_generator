@@ -80,7 +80,7 @@ const Home = () => {
         <>
             <div >
                 <section className='d-flex ' >
-                    <div className='left_data ' style={{ width: '100%' }}>
+                    <div className='left_data '>
                         <h3 className='text-center col-lg-6'>Sign Up Form</h3>
                         <Form onSubmit={addData} >
                             <Form.Group className='mb-3 col-lg-10' id='nameContainer'>
