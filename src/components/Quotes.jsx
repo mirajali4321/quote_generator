@@ -10,7 +10,6 @@ const Quotes = () => {
     const [logindata, setlogindata] = useState([]);
     const [error, setError] = useState(false);
 
-
     const getuser = localStorage.getItem('user_login');
     useEffect(() => {
         if (getuser && getuser.length) {
@@ -40,8 +39,6 @@ const Quotes = () => {
         }
     }, [user]);
 
-
-
     const handleInputChange = (e) => {
         setQuote(e.target.value);
         setError(false);
@@ -54,14 +51,12 @@ const Quotes = () => {
     const handleSaveQuote = (e) => {
         e.preventDefault();
 
-
         if (user) {
 
             const trimmedQuote = quote.trim();
             if (trimmedQuote === "") {
                 setError(true);
                 return;
-
             }
             const newQuote = {
                 id: generateRandomId(),

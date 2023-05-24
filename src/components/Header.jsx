@@ -16,17 +16,9 @@ const Header = () => {
     const [logindata, setlogindata] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [savedQuotes, setSavedQuotes] = useState([]);
-
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-
-
-
-
-
 
     useEffect(() => {
         const getuser = localStorage.getItem('user_login');
@@ -44,29 +36,27 @@ const Header = () => {
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        if (logindata){
-
-        
-        const getlistdata = localStorage.getItem(`user_quotes_${logindata[0].email}`);
-        if (getlistdata) {
-            const parsedData = JSON.parse(getlistdata);
-            if (Array.isArray(parsedData.quotes)) {
-                const filteredQuotes = parsedData.quotes.filter(
-                    (quote) => quote.quote.toLowerCase() === searchQuery.toLowerCase()
-                );
-                console.log(filteredQuotes); // Display the filtered quotes in the console
-                setSavedQuotes(filteredQuotes);
+        if (logindata) {
+            const getlistdata = localStorage.getItem(`user_quotes_${logindata[0].email}`);
+            if (getlistdata) {
+                const parsedData = JSON.parse(getlistdata);
+                if (Array.isArray(parsedData.quotes)) {
+                    const filteredQuotes = parsedData.quotes.filter(
+                        (quote) => quote.quote.toLowerCase() === searchQuery.toLowerCase()
+                    );
+                    console.log(filteredQuotes); // Display the filtered quotes in the console
+                    setSavedQuotes(filteredQuotes);
+                } else {
+                    console.log('Data in local storage is not an array:', parsedData);
+                }
             } else {
-                console.log('Data in local storage is not an array:', parsedData);
+                console.log('No data found in local storage');
+
             }
-        } else {
-            console.log('No data found in local storage');
+            document.getElementById('search').value = '';
+            handleShow();
 
         }
-        document.getElementById('search').value = '';
-        handleShow();
-
-    }
     };
 
     const handlelogout = () => {
@@ -139,5 +129,4 @@ const Header = () => {
         </>
     )
 }
-
 export default Header

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import LoginImg from './Login_img'
-import { NavLink ,useNavigate} from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import '../styles.css'
 
 
@@ -16,7 +16,7 @@ const Home = () => {
         password: "",
     })
 
-    const history =useNavigate();
+    const history = useNavigate();
     // get data from input feilds and store it in usestate
     const getdata = (e) => {
 
@@ -31,7 +31,7 @@ const Home = () => {
         })
         setErrors((prevErrors) => ({
             ...prevErrors,
-            [name]: '' 
+            [name]: ''
         }));
 
     }
@@ -89,12 +89,8 @@ const Home = () => {
                 email: '',
                 password: ''
             });
-
-
         }
     }
-
-
     return (
         <>
             <div >
