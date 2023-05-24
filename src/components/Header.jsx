@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../img/ijew58rzbaalpuueu3dy-removebg-preview.png';
 import { useNavigate, useLocation } from 'react-router-dom'
-import { FaSearch } from "react-icons/fa";
+import { FaSearch } from 'react-icons/fa';
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -48,33 +48,31 @@ const Header = () => {
     };
     const handlelogout = () => {
         localStorage.removeItem('user_login');
-        history("/login");
+        history('/login');
     }
     const isLoginPage = location.pathname === '/login';
     const isSignupPage = location.pathname === '/';
     return (
         <>
-            <Navbar bg="dark" variant="dark" className="navbar" >
-                <Navbar.Brand >
+            <Navbar  className='navbar bg-dark' >
+                <Navbar.Brand className='text-white' >
                     <img
-                        alt=""
+                        alt=''
                         src={logo}
-                        width="30"
-                        height="30"
-                        className="d-inline-block align-top "
+                        className='d-inline-block align-top custom-navbar'
                     />{' '}
                     QuoteWizard
                 </Navbar.Brand>
                 {logindata && !isLoginPage && !isSignupPage && (
                     <>
                         <form className='search_form' onSubmit={handleSearchSubmit} s>
-                            <div className="search_bar">
-                                <input type="text" id="search" placeholder="Search" onChange={handleSearchInputChange} />
-                                <button type="submit" className="icon"><span ><FaSearch /></span></button>
+                            <div className='search_bar'>
+                                <input type='text' id='search' placeholder='Search' onChange={handleSearchInputChange} />
+                                <button type='submit' className='icon'><span ><FaSearch /></span></button>
                             </div>
                         </form>
 
-                        <button className="logout_btn" onClick={handlelogout}>
+                        <button className='logout_btn' onClick={handlelogout}>
                             Logout
                         </button>
                     </>
@@ -83,7 +81,7 @@ const Header = () => {
             <Modal
                 show={show}
                 onHide={handleClose}
-                backdrop="static"
+                backdrop='static'
                 keyboard={false}
             >
                 <Modal.Header closeButton>
@@ -91,9 +89,9 @@ const Header = () => {
                 </Modal.Header>
                 <Modal.Body>
                     {searchQuery === '' ? (
-                        <div className="error-message">Please enter a search query</div>
+                        <div className='error-message'>Please enter a search query</div>
                     ) : savedQuotes.length === 0 ? (
-                        <div className="error-message">No matching quotes found</div>
+                        <div className='error-message'>No matching quotes found</div>
                     ) : (
                         savedQuotes.map((quote) => (
                             <div key={quote.id}>{quote.quote}</div>
@@ -101,7 +99,7 @@ const Header = () => {
                     )}
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button className='btn-secondary' onClick={handleClose}>
                         Close
                     </Button>
                 </Modal.Footer>

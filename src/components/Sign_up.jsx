@@ -8,10 +8,10 @@ import '../styles.css'
 const Home = () => {
     const [errors, setErrors] = useState({});
     const [inputvalue, setinputvalue] = useState({
-        name: "",
-        user_name: "",
-        email: "",
-        password: "",
+        name: '',
+        user_name: '',
+        email: '',
+        password: '',
     })
     const history = useNavigate();
     // get data from input feilds and store it in usestate
@@ -21,7 +21,7 @@ const Home = () => {
             return {
                 ...inputvalue,
                 [name]: value,
-                value: "",
+                value: '',
             }
         })
         setErrors((prevErrors) => ({
@@ -56,7 +56,7 @@ const Home = () => {
         }
         setErrors(newErrors);
         if (Object.keys(newErrors).length === 0) {
-            history("/dashboard");
+            history('/dashboard');
             const existingData = JSON.parse(localStorage.getItem('Userdata')) || [];
             const newUser = {
                 name: inputvalue.name,
@@ -80,32 +80,32 @@ const Home = () => {
         <>
             <div >
                 <section className='d-flex ' >
-                    <div className="left_data " style={{ width: "100%" }}>
+                    <div className='left_data '>
                         <h3 className='text-center col-lg-6'>Sign Up Form</h3>
                         <Form onSubmit={addData} >
-                            <Form.Group className="mb-3 col-lg-10" id="nameContainer">
+                            <Form.Group className='mb-3 col-lg-10' id='nameContainer'>
                                 <Form.Label>Name</Form.Label>
-                                <Form.Control type="text" name='name' id='name' onChange={getdata} placeholder="Enter your name" />
-                                {errors.name && <span className="error-message">{errors.name}</span>}                            </Form.Group>
-                            <Form.Group className="mb-3 col-lg-10" >
+                                <Form.Control type='text' name='name' id='name' onChange={getdata} placeholder='Enter your name' />
+                                {errors.name && <span className='error-message'>{errors.name}</span>}                            </Form.Group>
+                            <Form.Group className='mb-3 col-lg-10' >
                                 <Form.Label>Username</Form.Label>
-                                <Form.Control type="text" name='user_name' onChange={getdata} placeholder="Enter your username" />
-                                {errors.user_name && <span className="error-message">{errors.user_name}</span>}                            </Form.Group>
-                            <Form.Group className="mb-3 col-lg-10" >
+                                <Form.Control type='text' name='user_name' onChange={getdata} placeholder='Enter your username' />
+                                {errors.user_name && <span className='error-message'>{errors.user_name}</span>}                            </Form.Group>
+                            <Form.Group className='mb-3 col-lg-10' >
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter your email" />
-                                {errors.email && <span className="error-message">{errors.email}</span>}
+                                <Form.Control type='email' name='email' onChange={getdata} placeholder='Enter your email' />
+                                {errors.email && <span className='error-message'>{errors.email}</span>}
                             </Form.Group>
-                            <Form.Group className="mb-3 col-lg-10" >
+                            <Form.Group className='mb-3 col-lg-10' >
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" name='password' onChange={getdata} placeholder="Create a password" />
-                                {errors.password && <span className="error-message">{errors.password}</span>}
+                                <Form.Control type='password' name='password' onChange={getdata} placeholder='Create a password' />
+                                {errors.password && <span className='error-message'>{errors.password}</span>}
                             </Form.Group>
-                            <Button className='col-lg-8 ms-0 login_btn' type="submit">
+                            <Button className='col-lg-8 ms-0 login_btn' type='submit'>
                                 Create account
                             </Button>
                         </Form>
-                        <p className='mt-3'>Already Have an Account. <span><NavLink to="/login">Sign In</NavLink></span> </p>
+                        <p className='mt-3'>Already Have an Account. <span><NavLink to='/login'>Sign In</NavLink></span> </p>
                     </div>
                     <LoginImg />
                 </section>
