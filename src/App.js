@@ -7,11 +7,7 @@ import SignIn from './components/SignIn';
 import Dashboard from './components/Dashboard';
 import Error from './components/Error';
 
-
-
 function App() {
-  
-
   return (
   <>
   <Header/>
@@ -21,9 +17,7 @@ function App() {
     <Route path='/dashboard' element={ <Dashboard/>} />
     <Route path='*' element={ <Error/>} />
   </Routes>
- 
   </>
   );
 }
-
 export default App;

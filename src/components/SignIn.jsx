@@ -4,45 +4,33 @@ import Button from 'react-bootstrap/Button'
 import LoginImg from './Login_img'
 import { NavLink, useNavigate } from 'react-router-dom'
 
-
 const SignIn = () => {
-
-    const history = useNavigate();
-
-
+    const history = useNavigate()
     const [errors, setErrors] = useState({});
     const [inputvalue, setinputvalue] = useState({
         email: "",
         password: "",
     })
-
-
     // get data from input feilds and store it in usestate
     const getdata = (e) => {
-
         const { value, name } = e.target;
         setinputvalue(() => {
             return {
                 ...inputvalue,
                 [name]: value,
                 value: "",
-
             }
         })
         setErrors((prevErrors) => ({
             ...prevErrors,
             [name]: ''
         }));
-
     }
     const addData = (e) => {
         e.preventDefault();
         const getUserArr = localStorage.getItem("Userdata")
-        // console.log(getUserArr);
         const newErrors = {};
-
         // Validate the fields and set error messages 
-
         if (inputvalue.email === '') {
             newErrors.email = 'Email field is required';
         }
@@ -55,9 +43,6 @@ const SignIn = () => {
         else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(inputvalue.password)) {
             newErrors.password = 'Password must contain at least 8 characters, including a letter and a number';
         }
-        // else if (caches) {
-
-        // }
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
@@ -74,7 +59,6 @@ const SignIn = () => {
                     localStorage.setItem("user_login", JSON.stringify(userLogin))
                     history("/dashboard");
                 }
-
             }
         }
     }
@@ -107,5 +91,4 @@ const SignIn = () => {
         </>
     )
 }
-
 export default SignIn

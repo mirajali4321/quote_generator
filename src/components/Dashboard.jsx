@@ -2,13 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Quotes from './Quotes';
 import { useNavigate } from 'react-router-dom'
 
-
-
 const Dashboard = () => {
     const [magicQuote, setMagicQuote] = useState('');
     const [logindata, setlogindata] = useState([]);
     const history = useNavigate();
-
 
     useEffect(() => {
         fetchMagicQuote();
@@ -17,7 +14,6 @@ const Dashboard = () => {
             const userData = JSON.parse(getuser);
             setlogindata(userData);
         }
-
     }, []);
 
     const fetchMagicQuote = async () => {
@@ -27,7 +23,6 @@ const Dashboard = () => {
             const randomIndex = Math.floor(Math.random() * data.length);
             const randomQuote = data[randomIndex];
             setMagicQuote(randomQuote);
-
         } catch (error) {
             console.error('Error fetching magic quote:', error);
         }
@@ -50,7 +45,6 @@ const Dashboard = () => {
                                         </div>
                                     )}
                                     <button className='magic_button' onClick={fetchMagicQuote}>Generate Magic Quote</button>
-
                                 </div>
                             </div>
                             <Quotes />
@@ -60,6 +54,5 @@ const Dashboard = () => {
         </>
     )
 }
-
 export default Dashboard
 
