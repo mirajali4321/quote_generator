@@ -5,8 +5,6 @@ import LoginImg from './Login_img'
 import { NavLink, useNavigate } from 'react-router-dom'
 import '../styles.css'
 
-
-
 const Home = () => {
     const [errors, setErrors] = useState({});
     const [inputvalue, setinputvalue] = useState({
@@ -15,31 +13,25 @@ const Home = () => {
         email: "",
         password: "",
     })
-
     const history = useNavigate();
     // get data from input feilds and store it in usestate
     const getdata = (e) => {
-
         const { value, name } = e.target;
         setinputvalue(() => {
             return {
                 ...inputvalue,
                 [name]: value,
                 value: "",
-
             }
         })
         setErrors((prevErrors) => ({
             ...prevErrors,
             [name]: ''
         }));
-
     }
     const addData = (e) => {
         e.preventDefault();
-        // console.log(inputvalue);
         const newErrors = {};
-
         // Validate the fields and set error messages 
         if (inputvalue.name === '') {
             newErrors.name = 'Name field is required';
@@ -50,7 +42,6 @@ const Home = () => {
         else if (!/^[a-zA-Z0-9]+$/.test(inputvalue.user_name)) {
             newErrors.user_name = 'Username must contain only letters and numbers';
         }
-
         if (inputvalue.email === '') {
             newErrors.email = 'Email field is required';
         }
@@ -64,11 +55,8 @@ const Home = () => {
             newErrors.password = 'Password must contain at least 8 characters, including a letter and a number';
         }
         setErrors(newErrors);
-
         if (Object.keys(newErrors).length === 0) {
-            // alert("account created successfully")
             history("/dashboard");
-
             const existingData = JSON.parse(localStorage.getItem('Userdata')) || [];
             const newUser = {
                 name: inputvalue.name,
@@ -76,13 +64,10 @@ const Home = () => {
                 email: inputvalue.email,
                 password: inputvalue.password
             };
-
             // Add the new user to the existing data array
             const newData = [...existingData, newUser];
-
             // Store the updated user data array in localStorage
             localStorage.setItem('Userdata', JSON.stringify(newData));
-
             setinputvalue({
                 name: '',
                 user_name: '',
@@ -128,5 +113,4 @@ const Home = () => {
         </>
     )
 }
-
 export default Home

@@ -24,14 +24,10 @@ const Header = () => {
             const userData = JSON.parse(getuser);
             setlogindata(userData);
         }
-
     }, [])
-
     const handleSearchInputChange = (e) => {
         setSearchQuery(e.target.value);
     };
-
-
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         if (logindata) {
@@ -46,22 +42,16 @@ const Header = () => {
                     setSavedQuotes(filteredQuotes);
                 }
             }
-
             document.getElementById('search').value = '';
             handleShow();
-
         }
     };
-
     const handlelogout = () => {
         localStorage.removeItem('user_login');
         history("/login");
     }
-
-
     const isLoginPage = location.pathname === '/login';
     const isSignupPage = location.pathname === '/';
-
     return (
         <>
             <Navbar bg="dark" variant="dark" className="navbar" >
@@ -74,9 +64,7 @@ const Header = () => {
                         className="d-inline-block align-top "
                     />{' '}
                     QuoteWizard
-
                 </Navbar.Brand>
-
                 {logindata && !isLoginPage && !isSignupPage && (
                     <>
                         <form className='search_form' onSubmit={handleSearchSubmit} s>
@@ -92,7 +80,6 @@ const Header = () => {
                     </>
                 )}
             </Navbar>
-
             <Modal
                 show={show}
                 onHide={handleClose}
@@ -119,7 +106,6 @@ const Header = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-
         </>
     )
 }
